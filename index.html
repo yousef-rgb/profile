@@ -353,17 +353,18 @@
     }
   </style>
 </head>
+</head>
 <body>
-  <!-- HEADER -->
+    <!-- Header section -->
   <header>
     <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:16px">
       <div class="brand">
-        <div class="logo">
-          <img src="digotopia.jpeg" alt="Healthic logo" width="40" height="40">
+        <div class="logo"><img src="digotopia.jpeg" alt="digotopia image" width="40px" height="40px">
         </div>
         <span>Healthic</span>
-      </div>
-      <nav aria-label="Main">
+    </div>
+      <nav aria-label="Main" >
+        <!-- navigation bar -->
         <ul>
           <li><a href="#idea" aria-current="page">Idea</a></li>
           <li><a href="#features">Features</a></li>
@@ -374,31 +375,136 @@
     </div>
   </header>
 
-  <!-- HERO -->
-  <main class="wrap">
-    <section class="hero">
+  <main class="wrap" >
+    <section class="hero" >
       <div class="card">
-        <span class="pill">Project Description</span>
-        <h1>Healthic – Learn about diseases and improve your health knowledge</h1>
-        <p class="lead">An <b>AI-powered hub</b> where patients and learners can <b>discover health insights</b>, <b>connect with doctors</b>, and <b>access verified knowledge</b>—all in one place.</p>
+        <span class="pill">Project describtion</span>
+        <h1>Healthic – Join, discover, and learn about diseases while improving your health knowledge</h1>
+        <p class="lead">Watch the vedio intro and import <b>AI‑powered hub</b> where learners and makers can <b>study coding</b>, <b>co‑create software</b>, and <b>ship real products</b>—all in one place.</p>
         <div class="cta">
           <a class="btn primary" href="#features">Explore features</a>
           <a class="btn" href="https://www.youtube.com/watch?v=KwLLWOLNjQA" target="_blank" rel="noopener">Watch the video</a>
         </div>
       </div>
-      <div class="card" style="display:flex;align-items:center;justify-content:center;">
-        <dotlottie-wc src="https://lottie.host/756c9e3e-5913-4c4d-ab34-ea7e891e2ad8/gyVVHErmlb.lottie" style="width: 280px;height: 280px" speed="1" autoplay loop></dotlottie-wc>
+      <div class="card" style="height: 60%;">
+      <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js" type="module"></script>
+      <dotlottie-wc style="width: 150%; height: 150%; padding-right: 50%; padding-bottom: 20%;" src="https://lottie.host/756c9e3e-5913-4c4d-ab34-ea7e891e2ad8/gyVVHErmlb.lottie" style="width: 300px;height: 300px" speed="1" autoplay loop></dotlottie-wc>
+    </div>
+    </section>
+
+    <section id="idea" class="section">
+      <h2>The core idea</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Problem</h3>
+          <p class="lead">Over 80% of Egyptians <b>suffer</b> from <b>chronic diseases</b> such as : liver diseases , kidney diseases , heart and liver diseases 
+        </div>
+        <!-- this devision is for spacing 😂😘😘 -->
+        <div style="width: 40%;" style="margin-left: 26%;">
+          <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js" type="module"></script>
+          <dotlottie-wc  src="https://lottie.host/af270c3a-fd17-43c7-94b5-05b72b6e4ec1/0gJ1o4euN6.lottie" style="width: 300px;height: 300px" speed="1" autoplay loop></dotlottie-wc>
+        </div>
+        <div class="card">
+          <h3>Solution</h3>
+          <p class="lead"><b>A cross-platform app</b> that provides patient <b>guides</b>, <b>AI-powered</b> personalized assistance, access to top <b>doctors</b> and <b>labs</b> in Egypt, and a <b>page</b> for each <b>disease</b> of verified information on chronic diseases—including their <b>causes, symptoms, and prevention</b> methods
+        </div>
       </div>
     </section>
+
+    <section id="features" class="section">
+      <h2>Key features</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Artificial intelligence model</h3>
+          <ul class="list">
+            <li>Custom-Built AI Medical Assistant</li>
+            <li>Specialized in chronic and general disease support</li>
+            <li>Powered by Python for advanced data analysis and accurate recommendations</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Secure User Portal</h3>
+          <ul class="list">
+            <li>Personalized account creation</li>
+            <li>Encrypted database for secure health data storage</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Comprehensive Medical Encyclope</h3>
+          <ul class="list">
+            <li>Detailed profiles of major chronic diseases (diabetes, hypertension, cardiac conditions)</li>
+            <li>Dedicated disease pages</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Dedicated disease pages featuring:</h3>
+          <ul class="list">
+            <li>Root causes</li>
+            <li>Common symptoms</li>
+            <li>Prevention protocols</li>
+            <li>Treatment options</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Egyptian Healthcare Directory</h3>
+          <ul class="list">
+            <li>Curated list of top specialty hospitals and clinics</li>
+            <li>Curated list of top specialty hospitals and clinics</li>
+            <li>Precise locations with navigation support</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Why Choose This Platform ?</h3>
+          <ul class="list">
+            <li>Evidence-Based</li>
+            <li>User-Friendly</li>
+            <li>User-Friendly</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="how" class="section">
+      <h2>How it works</h2>
+      <div class="kpis">
+        <div class="kpi"><b>1</b><div>Sign Up & Personalize Your Profile</div></div>
+        <div class="kpi"><b>2</b><div>Access Your AI Health Assistant</div></div>
+        <div class="kpi"><b>3</b><div>Explore Disease Knowledge Base</div></div>
+        <div class="kpi"><b>4</b><div>Connect With Top Egyptian Healthcare</div></div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="who">
+      <h2 id="who">Who is it for?</h2>
+      <div class="grid">
+        <div class="card"><h3>Patients</h3><p class="lead">Patients with Chronic Conditions</p></div>
+        <div class="card"><h3>Health-Conscious Individuals</h3><p class="lead">People with family history of chronic illnesses or Those wanting early symptom checks & prevention plans</p></div>
+      </div>
+    </section>
+
+    <!-- <section class="section" id="contact">
+      <h2>Get involved</h2>
+      <div class="card">
+        <form onsubmit="event.preventDefault(); alert('Thanks! We will be in touch.'); this.reset();" aria-label="Early access form">
+          <label for="name">Name</label>
+          <input id="name" name="name" required style="display:block;width:100%;padding:12px;border-radius:10px;border:1px solid #2a3a64;background:#091226;color:var(--text);margin:6px 0 12px"/>
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required style="display:block;width:100%;padding:12px;border-radius:10px;border:1px solid #2a3a64;background:#091226;color:var(--text);margin:6px 0 12px"/>
+          <label for="msg">What would you build?</label>
+          <textarea id="msg" name="msg" rows="4" style="display:block;width:100%;padding:12px;border-radius:10px;border:1px solid #2a3a64;background:#091226;color:var(--text);margin:6px 0 12px"></textarea>
+          <button class="btn primary" type="submit">Request early access</button>
+        </form>
+      </div>
+    </section> -->
   </main>
 
-  <!-- FOOTER -->
   <footer>
-    <div>© <span id="y"></span> Healthic | Made with ❤ by Youssef Muhammed | <a href="#idea">Back to top</a></div>
+    <div class="wrap" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:16px 0">
+      <div>© <span id="y"></span> Healthic</div>
+      <div>Made with ❤ by Youssef Muhammed <a href="#idea">Back to top</a></div>
+    </div>
   </footer>
 
   <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
-  <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js" type="module"></script>
 </body>
 </html>
-
