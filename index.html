@@ -85,79 +85,285 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Healthic - team 0</title>
-  <meta name="description" content="A concise concept site describing the main idea behind the Digotopia project: an AI-powered hub for learning, building, and launching software projects." />
-  <link rel="web icon" href="digotopia.jpeg">
+  <title>Healthic – AI & Chronic Disease Support</title>
+  <meta name="description" content="Healthic: An AI-powered hub for learning, managing, and preventing chronic diseases while improving health knowledge." />
+  <link rel="icon" href="digotopia.jpeg" />
   <style>
+    /* ================= ROOT VARIABLES ================= */
+    :root {
+      --bg: #0b1220;
+      --panel: #121a2b;
+      --muted: #9fb0d0;
+      --text: #eaf2ff;
+      --accent: #6ee7b7;
+      --accent2: #60a5fa;
+      --warning: #fbbf24;
 
-    :root{
-      --bg:#0b1220; --panel:#121a2b; --muted:#9fb0d0; --text:#eaf2ff; --accent:#6ee7b7; --accent2:#60a5fa; --warning:#fbbf24;
-      
-      --radius:18px; --max:1100px;
+      --radius: 18px;
+      --max: 1100px;
+      --transition: 0.3s ease;
     }
-    *{
-        box-sizing:border-box
+
+    /* ================= RESET ================= */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-    html,body{
-        height:100%
+    html, body {
+      height: 100%;
+      scroll-behavior: smooth;
     }
-    body{
-        margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;background:radial-gradient(1200px 800px at 20% -10%,#1b2740,transparent),linear-gradient(#0b1220,#0b1220);color:var(--text);}
-    a{color:var(--accent2);text-decoration:none}
-    header{position:sticky;top:0;background:rgba(11,18,32,.7);backdrop-filter:saturate(160%) blur(10px);border-bottom:1px solid #223056;z-index:10}
-    .wrap{max-width:var(--max);margin:auto;padding:16px}
-    .brand{display:flex;align-items:center;gap:10px;font-weight:700}
-    .brand .logo{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent2),var(--accent));color:#051220;font-weight:900}
-    nav ul{list-style:none;margin:0;padding:0;display:flex;gap:18px;flex-wrap:wrap}
-    nav a{padding:8px 12px;border-radius:999px;background:transparent;border:1px solid #1f2a44}
-    nav a:hover{background:#111a2e}
+    body {
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif;
+      background: radial-gradient(1200px 800px at 20% -10%, #1b2740, transparent), linear-gradient(#0b1220, #0b1220);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a {
+      color: var(--accent2);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+    a:hover {
+      color: var(--accent);
+    }
 
-    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;padding:48px 16px}
-    @media (max-width:900px){.hero{grid-template-columns:1fr}}
-    .card{background:var(--panel);border:1px solid #223056;border-radius:var(--radius);padding:28px;box-shadow:0 20px 60px rgba(0,0,0,.35)}
-    h1{font-size:clamp(28px,5vw,48px);line-height:1.1;margin:0 0 10px}
-    h2{font-size:clamp(22px,3vw,28px);margin:24px 0 12px}
-    p.lead{font-size:clamp(16px,2.3vw,19px);color:var(--muted)}
-    .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:12px;border:1px solid #2a3a64;background:#0f1a30;color:var(--text);cursor:pointer}
-    .btn.primary{background:linear-gradient(135deg,var(--accent2),var(--accent));color:#0b1220;border:0;font-weight:700}
-    .btn:hover{transform:translateY(-1px)}
+    /* ================= HEADER ================= */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(11,18,32,.7);
+      backdrop-filter: saturate(160%) blur(10px);
+      border-bottom: 1px solid #223056;
+      z-index: 10;
+      transition: background var(--transition);
+    }
+    header:hover {
+      background: rgba(11,18,32,.9);
+    }
+    .wrap {
+      max-width: var(--max);
+      margin: auto;
+      padding: 16px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    .brand .logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--accent2), var(--accent));
+      overflow: hidden;
+      transition: transform var(--transition);
+    }
+    .brand .logo:hover {
+      transform: rotate(8deg) scale(1.05);
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    nav a {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid #1f2a44;
+      transition: all var(--transition);
+    }
+    nav a:hover {
+      background: var(--accent2);
+      color: #0b1220;
+      border-color: transparent;
+    }
 
-    .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;border:1px solid #2a3a64;color:var(--muted);font-size:12px}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    @media (max-width:900px){.grid{grid-template-columns:1fr}}
-    .list{display:grid;gap:8px;color:#c8d6f3}
+    /* ================= HERO ================= */
+    .hero {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 28px;
+      align-items: center;
+      padding: 120px 16px 48px; /* extra padding for fixed header */
+      animation: fadeInUp 1s ease forwards;
+    }
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+    }
 
-    .section{padding:28px 16px}
-    .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-    @media (max-width:900px){.kpis{grid-template-columns:repeat(2,1fr)}}
-    .kpi{padding:18px;border-radius:14px;background:linear-gradient(180deg,#111a2e,#0d1526);border:1px solid #1e2a48;text-align:center}
-    .kpi b{font-size:22px}
+    /* ================= CARDS ================= */
+    .card {
+      background: var(--panel);
+      border: 1px solid #223056;
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.35);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 25px 70px rgba(0,0,0,.45);
+    }
 
-    footer{border-top:1px solid #223056;background:#0b1220;color:#8fa4cc}
-  header {
-    position: fixed; 
-    top: 0;
-    left: 0; 
-    width: 100%; 
-    background: rgba(11,18,32,.7);
-    backdrop-filter: saturate(160%) blur(10px);
-    border-bottom: 1px solid #223056;
-    z-index: 10;
-}
+    /* ================= TYPOGRAPHY ================= */
+    h1 {
+      font-size: clamp(28px, 5vw, 48px);
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+    h2 {
+      font-size: clamp(22px, 3vw, 28px);
+      margin: 24px 0 12px;
+      position: relative;
+    }
+    h2::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: var(--accent);
+      margin-top: 6px;
+      border-radius: 2px;
+    }
+    p.lead {
+      font-size: clamp(16px, 2.3vw, 19px);
+      color: var(--muted);
+    }
+
+    /* ================= BUTTONS ================= */
+    .cta {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 18px;
+      border-radius: 12px;
+      border: 1px solid #2a3a64;
+      background: #0f1a30;
+      color: var(--text);
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+    .btn.primary {
+      background: linear-gradient(135deg, var(--accent2), var(--accent));
+      color: #0b1220;
+      border: 0;
+      font-weight: 700;
+    }
+    .btn:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+    }
+
+    /* ================= UTILITY ================= */
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid #2a3a64;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .list {
+      display: grid;
+      gap: 8px;
+      color: #c8d6f3;
+    }
+
+    .section {
+      padding: 60px 16px;
+      animation: fadeIn 1.2s ease;
+    }
+
+    /* ================= KPIs ================= */
+    .kpis {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    @media (max-width: 900px) {
+      .kpis {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    .kpi {
+      padding: 18px;
+      border-radius: 14px;
+      background: linear-gradient(180deg, #111a2e, #0d1526);
+      border: 1px solid #1e2a48;
+      text-align: center;
+      transition: transform var(--transition);
+    }
+    .kpi:hover {
+      transform: scale(1.05);
+    }
+    .kpi b {
+      font-size: 22px;
+      display: block;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    /* ================= FOOTER ================= */
+    footer {
+      border-top: 1px solid #223056;
+      background: #0b1220;
+      color: #8fa4cc;
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    /* ================= ANIMATIONS ================= */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 <body>
-    <!-- Header section -->
+  <!-- HEADER -->
   <header>
     <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:16px">
       <div class="brand">
-        <div class="logo"><img src="digotopia.jpeg" alt="digotopia image" width="40px" height="40px">
+        <div class="logo">
+          <img src="digotopia.jpeg" alt="Healthic logo" width="40" height="40">
         </div>
         <span>Healthic</span>
-    </div>
-      <nav aria-label="Main" >
-        <!-- navigation bar -->
+      </div>
+      <nav aria-label="Main">
         <ul>
           <li><a href="#idea" aria-current="page">Idea</a></li>
           <li><a href="#features">Features</a></li>
@@ -168,136 +374,31 @@
     </div>
   </header>
 
-  <main class="wrap" >
-    <section class="hero" >
+  <!-- HERO -->
+  <main class="wrap">
+    <section class="hero">
       <div class="card">
-        <span class="pill">Project describtion</span>
-        <h1>Healthic – Join, discover, and learn about diseases while improving your health knowledge</h1>
-        <p class="lead">Watch the vedio intro and import <b>AI‑powered hub</b> where learners and makers can <b>study coding</b>, <b>co‑create software</b>, and <b>ship real products</b>—all in one place.</p>
+        <span class="pill">Project Description</span>
+        <h1>Healthic – Learn about diseases and improve your health knowledge</h1>
+        <p class="lead">An <b>AI-powered hub</b> where patients and learners can <b>discover health insights</b>, <b>connect with doctors</b>, and <b>access verified knowledge</b>—all in one place.</p>
         <div class="cta">
           <a class="btn primary" href="#features">Explore features</a>
           <a class="btn" href="https://www.youtube.com/watch?v=KwLLWOLNjQA" target="_blank" rel="noopener">Watch the video</a>
         </div>
       </div>
-      <div class="card" style="height: 60%;">
-      <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js" type="module"></script>
-      <dotlottie-wc style="width: 150%; height: 150%; padding-right: 50%; padding-bottom: 20%;" src="https://lottie.host/756c9e3e-5913-4c4d-ab34-ea7e891e2ad8/gyVVHErmlb.lottie" style="width: 300px;height: 300px" speed="1" autoplay loop></dotlottie-wc>
-    </div>
-    </section>
-
-    <section id="idea" class="section">
-      <h2>The core idea</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Problem</h3>
-          <p class="lead">Over 80% of Egyptians <b>suffer</b> from <b>chronic diseases</b> such as : liver diseases , kidney diseases , heart and liver diseases 
-        </div>
-        <!-- this devision is for spacing 😂😘😘 -->
-        <div style="width: 40%;" style="margin-left: 26%;">
-          <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js" type="module"></script>
-          <dotlottie-wc  src="https://lottie.host/af270c3a-fd17-43c7-94b5-05b72b6e4ec1/0gJ1o4euN6.lottie" style="width: 300px;height: 300px" speed="1" autoplay loop></dotlottie-wc>
-        </div>
-        <div class="card">
-          <h3>Solution</h3>
-          <p class="lead"><b>A cross-platform app</b> that provides patient <b>guides</b>, <b>AI-powered</b> personalized assistance, access to top <b>doctors</b> and <b>labs</b> in Egypt, and a <b>page</b> for each <b>disease</b> of verified information on chronic diseases—including their <b>causes, symptoms, and prevention</b> methods
-        </div>
+      <div class="card" style="display:flex;align-items:center;justify-content:center;">
+        <dotlottie-wc src="https://lottie.host/756c9e3e-5913-4c4d-ab34-ea7e891e2ad8/gyVVHErmlb.lottie" style="width: 280px;height: 280px" speed="1" autoplay loop></dotlottie-wc>
       </div>
     </section>
-
-    <section id="features" class="section">
-      <h2>Key features</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Artificial intelligence model</h3>
-          <ul class="list">
-            <li>Custom-Built AI Medical Assistant</li>
-            <li>Specialized in chronic and general disease support</li>
-            <li>Powered by Python for advanced data analysis and accurate recommendations</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Secure User Portal</h3>
-          <ul class="list">
-            <li>Personalized account creation</li>
-            <li>Encrypted database for secure health data storage</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Comprehensive Medical Encyclope</h3>
-          <ul class="list">
-            <li>Detailed profiles of major chronic diseases (diabetes, hypertension, cardiac conditions)</li>
-            <li>Dedicated disease pages</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Dedicated disease pages featuring:</h3>
-          <ul class="list">
-            <li>Root causes</li>
-            <li>Common symptoms</li>
-            <li>Prevention protocols</li>
-            <li>Treatment options</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Egyptian Healthcare Directory</h3>
-          <ul class="list">
-            <li>Curated list of top specialty hospitals and clinics</li>
-            <li>Curated list of top specialty hospitals and clinics</li>
-            <li>Precise locations with navigation support</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Why Choose This Platform ?</h3>
-          <ul class="list">
-            <li>Evidence-Based</li>
-            <li>User-Friendly</li>
-            <li>User-Friendly</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="how" class="section">
-      <h2>How it works</h2>
-      <div class="kpis">
-        <div class="kpi"><b>1</b><div>Sign Up & Personalize Your Profile</div></div>
-        <div class="kpi"><b>2</b><div>Access Your AI Health Assistant</div></div>
-        <div class="kpi"><b>3</b><div>Explore Disease Knowledge Base</div></div>
-        <div class="kpi"><b>4</b><div>Connect With Top Egyptian Healthcare</div></div>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="who">
-      <h2 id="who">Who is it for?</h2>
-      <div class="grid">
-        <div class="card"><h3>Patients</h3><p class="lead">Patients with Chronic Conditions</p></div>
-        <div class="card"><h3>Health-Conscious Individuals</h3><p class="lead">People with family history of chronic illnesses or Those wanting early symptom checks & prevention plans</p></div>
-      </div>
-    </section>
-
-    <!-- <section class="section" id="contact">
-      <h2>Get involved</h2>
-      <div class="card">
-        <form onsubmit="event.preventDefault(); alert('Thanks! We will be in touch.'); this.reset();" aria-label="Early access form">
-          <label for="name">Name</label>
-          <input id="name" name="name" required style="display:block;width:100%;padding:12px;border-radius:10px;border:1px solid #2a3a64;background:#091226;color:var(--text);margin:6px 0 12px"/>
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" required style="display:block;width:100%;padding:12px;border-radius:10px;border:1px solid #2a3a64;background:#091226;color:var(--text);margin:6px 0 12px"/>
-          <label for="msg">What would you build?</label>
-          <textarea id="msg" name="msg" rows="4" style="display:block;width:100%;padding:12px;border-radius:10px;border:1px solid #2a3a64;background:#091226;color:var(--text);margin:6px 0 12px"></textarea>
-          <button class="btn primary" type="submit">Request early access</button>
-        </form>
-      </div>
-    </section> -->
   </main>
 
+  <!-- FOOTER -->
   <footer>
-    <div class="wrap" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:16px 0">
-      <div>© <span id="y"></span> Healthic</div>
-      <div>Made with ❤ by Youssef Muhammed <a href="#idea">Back to top</a></div>
-    </div>
+    <div>© <span id="y"></span> Healthic | Made with ❤ by Youssef Muhammed | <a href="#idea">Back to top</a></div>
   </footer>
 
   <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+  <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js" type="module"></script>
 </body>
 </html>
+
